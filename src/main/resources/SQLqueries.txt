@@ -1,0 +1,15 @@
+CREATE DATABASE `jd2_homework3-4`;
+USE jd2_homework3-4;
+CREATE TABLE film (name VARCHAR(50) NOT NULL, running_time INT(120) NOT NULL, price INT(100) NOT NULL);
+INSERT INTO film VALUES('Coffee and Cigarettes', 90, 50);
+INSERT INTO film VALUES('Dead Man', 120, 60);
+INSERT INTO film VALUES('Broken Flowers', 60, 40);
+INSERT INTO film VALUES('Only Lovers Left Alive', 120, 70);
+INSERT INTO film VALUES('The Dead Don`t Die', 90, 60);
+SELECT MAX(price) FROM film;
+SET @min_price = (SELECT MIN(price) FROM film);
+DELETE FROM film WHERE price = @min_price;
+SET @max_price = (SELECT MAX(price) FROM film);
+UPDATE film SET name = 'Hot film!' WHERE price = @max_price;
+DROP TABLE film;
+DROP DATABASE `jd2_homework3-4`;
